@@ -1,0 +1,163 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-04-08 23:18:45.406403",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "posting_date",
+  "column_break_yjzm",
+  "from_date",
+  "to_date",
+  "section_break_czlb",
+  "purchase_detail",
+  "purchase_tax_total",
+  "sales_details",
+  "sales_tax_total",
+  "tax_balance",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_czlb",
+   "fieldtype": "Section Break",
+   "label": "VAT Details"
+  },
+  {
+   "fieldname": "sales_details",
+   "fieldtype": "Table",
+   "label": "Sales Details",
+   "options": "Sales Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "purchase_detail",
+   "fieldtype": "Table",
+   "label": "Purchase Detail",
+   "options": "Purchase Detail",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yjzm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_tax_total",
+   "fieldtype": "Currency",
+   "label": "Sales Tax Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "purchase_tax_total",
+   "fieldtype": "Currency",
+   "label": "Purchase Tax Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "VAT-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "VAT-.YYYY.-",
+   "print_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "tax_balance",
+   "fieldtype": "Currency",
+   "label": "Tax Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "VAT Reconciliation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-04-10 09:52:52.250617",
+ "modified_by": "Administrator",
+ "module": "Global Petroleum Customizations",
+ "name": "VAT Reconciliation",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

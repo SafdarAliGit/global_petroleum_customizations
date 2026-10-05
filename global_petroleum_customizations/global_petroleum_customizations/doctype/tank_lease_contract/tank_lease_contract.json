@@ -1,0 +1,334 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-02-22 15:41:32.494626",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_gvyj",
+  "naming_series",
+  "column_break_phfw",
+  "amended_from",
+  "section_break_bt24",
+  "company",
+  "supplier",
+  "supplier_contract_no",
+  "contract_date",
+  "contract_expiry_date",
+  "column_break_gaqr",
+  "booking_date",
+  "expiry_date",
+  "status",
+  "accounting_dimensions_section",
+  "cost_center",
+  "project",
+  "column_break_k2fr",
+  "lease_item",
+  "base_oil_item",
+  "section_break_kpia",
+  "warehouse",
+  "terminal_name",
+  "column_break_xawa",
+  "tank_capacity",
+  "lease_duration_in_months",
+  "rate",
+  "column_break_vskm",
+  "contract_unit",
+  "total_contract_amount",
+  "section_break_xh2o",
+  "base_oil_density",
+  "tank_capacity_in_metric_ton",
+  "column_break_uobn",
+  "currency",
+  "conversion_rate",
+  "terms_tab",
+  "section_break_jpka",
+  "tc_name",
+  "terms"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_gvyj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Tank Lease Contract",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_phfw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "TLC-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_bt24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "terminal_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tank Location",
+   "options": "Territory",
+   "reqd": 1
+  },
+  {
+   "fieldname": "booking_date",
+   "fieldtype": "Datetime",
+   "label": "Booking Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Datetime",
+   "label": "Expiry Date for Tank",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "accounting_dimensions_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_k2fr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "section_break_xh2o",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lease_item",
+   "fieldtype": "Link",
+   "label": "Lease Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_jpka",
+   "fieldtype": "Section Break",
+   "label": "Terms & Conditions"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nDraft\nActive\nExpired\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_gaqr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_uobn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "terms_tab",
+   "fieldtype": "Tab Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "tc_name",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Terms and Conditions"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions Details"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Lease Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Name of Tank",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "base_oil_item",
+   "fieldtype": "Link",
+   "label": "Base Oil Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "default": "0.88",
+   "depends_on": "eval: doc.contract_unit == \"Cubic Meter\"",
+   "fieldname": "base_oil_density",
+   "fieldtype": "Float",
+   "label": "Base Oil Density",
+   "mandatory_depends_on": "eval: doc.contract_unit == \"Cubic Meter\"",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "section_break_kpia",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval: doc.contract_unit == \"Cubic Meter\"",
+   "fetch_from": "warehouse.custom_tank_capacity_in_metric_ton",
+   "fetch_if_empty": 1,
+   "fieldname": "tank_capacity_in_metric_ton",
+   "fieldtype": "Float",
+   "label": "Tank Capacity in Metric Ton",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xawa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "CBM/MT",
+   "fieldname": "contract_unit",
+   "fieldtype": "Select",
+   "label": "Contract Unit",
+   "options": "Cubic Meter\nMetric Ton"
+  },
+  {
+   "fieldname": "supplier_contract_no",
+   "fieldtype": "Data",
+   "label": "Supplier Contract No"
+  },
+  {
+   "fieldname": "contract_date",
+   "fieldtype": "Date",
+   "label": "Contract Date",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "lease_duration_in_months",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Lease Duration in Months",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vskm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_contract_amount",
+   "fieldtype": "Currency",
+   "label": "Total Contract Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tank_capacity",
+   "fieldtype": "Float",
+   "label": "Tank Capacity",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "contract_expiry_date",
+   "fieldtype": "Date",
+   "label": "Contract Expiry Date"
+  },
+  {
+   "depends_on": "eval: doc.currency == \"USD\"",
+   "fieldname": "conversion_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "mandatory_depends_on": "eval: doc.currency == \"USD\""
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Purchase Invoices",
+   "is_child_table": 1,
+   "link_doctype": "Purchase Invoice Item",
+   "link_fieldname": "custom_tank_lease_contract",
+   "parent_doctype": "Purchase Invoice",
+   "table_fieldname": "items"
+  }
+ ],
+ "modified": "2026-03-18 23:30:41.624004",
+ "modified_by": "Administrator",
+ "module": "Global Petroleum Customizations",
+ "name": "Tank Lease Contract",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
