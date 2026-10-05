@@ -25,7 +25,13 @@ frappe.ui.form.on("Delivery Note Item", {
 		let row = frappe.get_doc(cdt, cdn);
 		frappe.model.set_value(cdt, cdn, "custom_net_weight", flt(row.custom_second_weight) - flt(row.custom_first_weight));
 		frappe.model.set_value(cdt, cdn, "custom_net_weight_by_receiver", flt(row.custom_tare_weight_by_receiver) - flt(row.custom_gross_weight_by_receiver));
-		frappe.model.set_value(cdt, cdn, "custom_net_weight_difference", flt(row.custom_net_weight) - flt(row.custom_net_weight_by_receiver));
+		
+		if (row.custom_stock_adjustment_entry_by == "Average Weight") {
+			frappe.model.set_value(cdt, cdn, "custom_net_weight_difference", flt(row.custom_net_weight) - flt(row.custom_average_weight));
+		}else{
+			frappe.model.set_value(cdt, cdn, "custom_net_weight_difference", flt(row.custom_net_weight) - flt(row.custom_net_weight_by_receiver));
+		}
+
 		frappe.model.set_value(cdt, cdn, "custom_average_weight", flt((row.custom_net_weight + row.custom_net_weight_by_receiver) / 2));
 
 		if (row.custom_stock_adjustment_entry_by == "Average Weight") {
