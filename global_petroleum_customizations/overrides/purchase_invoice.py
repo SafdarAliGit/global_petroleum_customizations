@@ -52,3 +52,28 @@ def get_all_pro_items(pro_template):
 		fields=["item"]
 	)
 	return pro_items
+
+
+@frappe.whitelist()
+def get_delivery_notes_for_transporter(supplier, from_date=None, to_date=None):
+	if not supplier:
+		return []
+
+	filters = {
+		"transporter": supplier,
+		"docstatus": 1,
+	}
+
+	if from_date and to_date:
+		filters["posting_date"] = ["between", [from_date, to_date]]
+	elif from_date:
+		filters["posting_date"] = [">=", from_date]
+	elif to_date:
+		filters["posting_date"] = ["<=", to_date]
+
+	return frappe.get_all(
+		"Delivery Note",
+		filters=filters,
+		fields=["name", "posting_date", "cost_center"],
+		order_by="posting_date desc",
+	)
