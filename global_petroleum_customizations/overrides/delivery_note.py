@@ -14,9 +14,9 @@ class CustomDeliveryNote(DeliveryNote):
 		for item in self.items:
 			# if item.custom_net_weight_by_receiver and item.custom_net_weight > item.custom_net_weight_by_receiver:
 					if item.custom_stock_adjustment_entry_by == "Average Weight":
-						item.custom_net_weight_difference = flt(item.custom_net_weight, 2) - flt(item.custom_average_weight, 2)
+						item.custom_net_weight_difference = flt(item.custom_net_weight) - flt(item.custom_average_weight)
 					elif item.custom_stock_adjustment_entry_by == "Receiver Weight":
-						item.custom_net_weight_difference = flt(item.custom_net_weight, 2) - flt(item.custom_net_weight_by_receiver, 2)
+						item.custom_net_weight_difference = flt(item.custom_net_weight) - flt(item.custom_net_weight_by_receiver)
 					if self.get("_action") and self._action == "submit":
 						stock_entry = make_stock_entry(item, self.doctype, self.name, self.posting_date, self.posting_time)
 						if stock_entry:
