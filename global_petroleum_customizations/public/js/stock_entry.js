@@ -1,6 +1,25 @@
 // Copyright (c) 2025, Venture Up Technology and contributors
 // For license information, please see license.txt
 
+frappe.ui.form.on("Stock Entry", {
+	setup: function (frm) {
+		frm.set_query("cost_center", function () {
+			return {
+				filters: {
+					custom_is_active: 1
+				}
+			};
+		});
+		frm.set_query("cost_center", "items", function () {
+			return {
+				filters: {
+					custom_is_active: 1
+				}
+			};
+		});
+	}
+});
+
 frappe.ui.form.on("Stock Entry Detail", {
 	custom_first_weight: function (frm, cdt, cdn) {
 		let row = frappe.get_doc(cdt, cdn);
